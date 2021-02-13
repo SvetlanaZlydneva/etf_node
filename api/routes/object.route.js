@@ -32,6 +32,7 @@ objectRouter.patch(
   validateUpdateObject,
   updateObject
 );
-objectRouter.get("/all", tokenVerification, getObjects);
+// objectRouter.get("/all", tokenVerification, getObjects);
+objectRouter.get("/all", getObjects);
 
 module.exports = objectRouter;
