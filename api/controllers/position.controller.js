@@ -18,6 +18,15 @@ class PositionController {
     }
   }
 
+  async getById(req, res, next) {
+    try {
+      const position = await positionModel.findById(req.id);
+      return res.status(201).json(position);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async deletePosition(req, res, next) {
     try {
       const position = await positionModel.findByIdAndDelete(req.id);

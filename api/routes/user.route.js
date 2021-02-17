@@ -7,6 +7,7 @@ const {
   deleteUser,
   updateUser,
   getCurrent,
+  getById,
 } = require("../controllers/user.controller");
 const {
   validateCreateUser,
@@ -41,5 +42,6 @@ userRoute.post("/login", validateSingIn, findUserByLogin, signIn);
 userRoute.post("/logout", tokenVerification, logOut);
 userRoute.get("/all", tokenVerification, getUsers);
 userRoute.get("/current", tokenVerification, getCurrent);
+userRoute.get("/details/:id", tokenVerification, validateId, getById);
 
 module.exports = userRoute;

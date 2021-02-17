@@ -4,6 +4,7 @@ const {
   deleteObject,
   updateObject,
   getObjects,
+  getById,
 } = require("../controllers/object.controller");
 const {
   tokenVerification,
@@ -33,5 +34,6 @@ objectRouter.patch(
   updateObject
 );
 objectRouter.get("/all", tokenVerification, getObjects);
+objectRouter.get("/details/:id", tokenVerification, validateId, getById);
 
 module.exports = objectRouter;

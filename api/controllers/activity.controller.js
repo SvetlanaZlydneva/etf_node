@@ -21,6 +21,15 @@ class ActivityController {
     }
   }
 
+  async getById(req, res, next) {
+    try {
+      const activity = await activityModel.findById(req.id);
+      return res.status(201).json(activity);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async deleteActivity(req, res, next) {
     try {
       const activity = await activityModel.findByIdAndDelete(req.id);

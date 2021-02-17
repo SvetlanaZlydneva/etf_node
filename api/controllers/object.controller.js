@@ -19,6 +19,15 @@ class ObjectController {
     }
   }
 
+  async getById(req, res, next) {
+    try {
+      const object = await objectModel.findById(req.id);
+      return res.status(201).json(object);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async deleteObject(req, res, next) {
     try {
       const object = await objectModel.findByIdAndDelete(req.id);

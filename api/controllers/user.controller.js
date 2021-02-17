@@ -25,6 +25,15 @@ class UserController {
     }
   }
 
+  async getById(req, res, next) {
+    try {
+      const user = await userModel.findById(req.id);
+      return res.status(201).json(user);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async deleteUser(req, res, next) {
     try {
       const user = await userModel.findByIdAndDelete(req.id);

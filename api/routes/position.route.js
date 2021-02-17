@@ -4,6 +4,7 @@ const {
   deletePosition,
   updatePosition,
   getPositions,
+  getById,
 } = require("../controllers/position.controller");
 const {
   tokenVerification,
@@ -32,5 +33,6 @@ positionRouter.patch(
   updatePosition
 );
 positionRouter.get("/all", tokenVerification, getPositions);
+positionRouter.get("/details/:id", tokenVerification, validateId, getById);
 
 module.exports = positionRouter;

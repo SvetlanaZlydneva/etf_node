@@ -4,6 +4,7 @@ const {
   deleteActivity,
   updateActivity,
   getActivities,
+  getById,
 } = require("../controllers/activity.controller");
 const {
   tokenVerification,
@@ -33,5 +34,6 @@ activityRouter.patch(
   updateActivity
 );
 activityRouter.get("/all", tokenVerification, getActivities);
+activityRouter.get("/details/:id", tokenVerification, validateId, getById);
 
 module.exports = activityRouter;
