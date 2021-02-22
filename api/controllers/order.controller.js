@@ -32,7 +32,7 @@ class OrderController {
     try {
       const order = await orderModel.findByIdAndUpdate(
         req.id,
-        { status: req.body.status },
+        { $set: { ...req.body } },
         { new: true }
       );
       if (!order) throw new NotFoundError(`order with id ${req.id} not found`);
