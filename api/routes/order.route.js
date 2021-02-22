@@ -3,7 +3,7 @@ const {
   createOrder,
   getOrders,
   getById,
-  changeStatus,
+  changeOrder,
   //   deleteObject,
   //   updateObject,
   //   getObjects,
@@ -39,7 +39,7 @@ orderRouter.post(
 // );
 orderRouter.get("/all", tokenVerification, getOrders);
 orderRouter.get("/details/:id", tokenVerification, validateId, getById);
-orderRouter.patch("/status/:id", tokenVerification, validateId, changeStatus);
+orderRouter.patch("/status/:id", tokenVerification, validateId, changeOrder);
 
 // activityRouter.patch(
 //   "/:id",

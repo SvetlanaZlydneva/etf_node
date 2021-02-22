@@ -28,15 +28,18 @@ class OrderController {
     }
   }
 
-  async changeStatus(req, res, next) {
+  async changeOrder(req, res, next) {
     try {
+      const data = { ...req.body };
       const order = await orderModel.findByIdAndUpdate(
         req.id,
-        { $set: { ...req.body } },
-        { new: true }
+        { $set: data },
+        {
+          new: true,
+        }
       );
       if (!order) throw new NotFoundError(`order with id ${req.id} not found`);
-      return res.status(200).json(object);
+      return res.status(200).json(order);
     } catch (error) {
       next(error);
     }
