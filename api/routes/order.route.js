@@ -39,7 +39,7 @@ orderRouter.post(
 // );
 orderRouter.get("/all", tokenVerification, getOrders);
 orderRouter.get("/details/:id", tokenVerification, validateId, getById);
-orderRouter("/status/:id", tokenVerification, validateId, changeStatus);
+orderRouter.patch("/status/:id", tokenVerification, validateId, changeStatus);
 
 // activityRouter.patch(
 //   "/:id",
