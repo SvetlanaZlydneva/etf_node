@@ -3,6 +3,7 @@ const {
   createOrder,
   getOrders,
   getById,
+  changeStatus,
   //   deleteObject,
   //   updateObject,
   //   getObjects,
@@ -25,8 +26,7 @@ orderRouter.post(
   validateCreateOrder,
   findLastNumber,
   createOrder,
-  getOrders,
-  changeStatus
+  getOrders
 );
 // orderRouter.delete("/:id", tokenVerification, validateId, deleteObject);
 // orderRouter.patch(
