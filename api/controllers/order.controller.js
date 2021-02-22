@@ -28,6 +28,20 @@ class OrderController {
     }
   }
 
+  async changeStatus(req, res, next) {
+    try {
+      const order = await orderModel.findByIdAndUpdate(
+        req.id,
+        { status: req.body.status },
+        { new: true }
+      );
+      if (!order) throw new NotFoundError(`order with id ${req.id} not found`);
+      return res.status(200).json(object);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   //   async deleteOrder(req, res, next) {
   //     try {
   //       const order = await orderModel.findByIdAndDelete(req.id);

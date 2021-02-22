@@ -25,7 +25,8 @@ orderRouter.post(
   validateCreateOrder,
   findLastNumber,
   createOrder,
-  getOrders
+  getOrders,
+  changeStatus
 );
 // orderRouter.delete("/:id", tokenVerification, validateId, deleteObject);
 // orderRouter.patch(
@@ -38,5 +39,15 @@ orderRouter.post(
 // );
 orderRouter.get("/all", tokenVerification, getOrders);
 orderRouter.get("/details/:id", tokenVerification, validateId, getById);
+orderRouter("/status/:id", tokenVerification, validateId, changeStatus);
+
+// activityRouter.patch(
+//   "/:id",
+//   tokenVerification,
+//   validateId,
+//   findActivityByName,
+//   validateUpdateActivity,
+//   updateActivity
+// );
 
 module.exports = orderRouter;
