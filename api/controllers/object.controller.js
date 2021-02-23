@@ -59,7 +59,7 @@ class ObjectController {
 
   async getObjects(_, res, next) {
     try {
-      const objects = await objectModel.find();
+      const objects = await objectModel.find().sort({ name: 1 });
       if (objects.length === 0) throw new NotFoundError("Not found Data");
       return res.status(200).json(objects);
     } catch (error) {

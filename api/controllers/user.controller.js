@@ -85,7 +85,7 @@ class UserController {
 
   async getUsers(_, res, next) {
     try {
-      const users = await userModel.find();
+      const users = await userModel.find().sort({ snp: 1 });
       if (users.length === 0) throw new NotFoundError("Not found Data");
       return res.status(200).json(users);
     } catch (error) {

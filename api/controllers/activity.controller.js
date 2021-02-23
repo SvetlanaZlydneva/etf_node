@@ -60,7 +60,7 @@ class ActivityController {
 
   async getActivities(_, res, next) {
     try {
-      const activity = await activityModel.find();
+      const activity = await activityModel.find().sort({ name: 1 });
       if (activity.length === 0) throw new NotFoundError("Not found Data");
       return res.status(200).json(activity);
     } catch (error) {
