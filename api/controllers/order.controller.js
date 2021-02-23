@@ -74,7 +74,9 @@ class OrderController {
 
   async getOrders(_, res, next) {
     try {
-      const orders = await orderModel.find();
+      const orders = await orderModel.find({
+        $and: [{ login: req.user }, { status: { $ne: "rejected" } }],
+      });
       if (orders.length === 0) throw new NotFoundError("Not found Data");
       return res.status(200).json(orders);
     } catch (error) {
