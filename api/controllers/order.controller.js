@@ -28,7 +28,7 @@ class OrderController {
     }
   }
 
-  async changeOrder(req, res, next) {
+  async updateOrder(req, res, next) {
     try {
       const data = { ...req.body };
       const order = await orderModel.findByIdAndUpdate(
