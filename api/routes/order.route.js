@@ -25,29 +25,11 @@ orderRouter.post(
   tokenVerification,
   validateCreateOrder,
   findLastNumber,
-  createOrder,
-  getOrders
+  createOrder
 );
 // orderRouter.delete("/:id", tokenVerification, validateId, deleteObject);
-// orderRouter.patch(
-//   "/:id",
-//   tokenVerification,
-//   validateId,
-//   findObjectByName,
-//   validateUpdateObject,
-//   updateObject
-// );
 orderRouter.get("/all", tokenVerification, getOrders);
 orderRouter.get("/details/:id", tokenVerification, validateId, getById);
 orderRouter.patch("/:id", tokenVerification, validateId, updateOrder);
-
-// activityRouter.patch(
-//   "/:id",
-//   tokenVerification,
-//   validateId,
-//   findActivityByName,
-//   validateUpdateActivity,
-//   updateActivity
-// );
 
 module.exports = orderRouter;

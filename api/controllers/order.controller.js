@@ -74,9 +74,13 @@ class OrderController {
 
   async getOrders(_, res, next) {
     try {
-      const orders = await orderModel.find({
-        $and: [{ login: req.user }, { status: { $ne: "rejected" } }],
-      });
+      const orders = await orderModel
+        .find()
+        .where("author")
+        .equals(req.user.login)
+        .where("status")
+        .ne("rejected")
+        .sort({ number: -1 });
       if (orders.length === 0) throw new NotFoundError("Not found Data");
       return res.status(200).json(orders);
     } catch (error) {
