@@ -78,7 +78,7 @@ class OrderController {
         .find({
           $and: [{ author: req.user.login }, { status: { $ne: "processed" } }],
         })
-        .sort({ number: 1 });
+        .sort({ number: -1 });
       if (orders.length === 0) throw new NotFoundError("Not found Data");
       return res.status(200).json(orders);
     } catch (error) {
