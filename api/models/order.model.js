@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-const currentTime = require("../helpers/dateNowUnix");
+moment = require("moment");
 
 const orderSchema = new Schema({
   activity: { type: String, require },
   category: { type: Object, require },
   head: { type: String, require },
-  created: { type: Number, default: currentTime },
+  created: { type: Number, default: moment().unix() },
   author: { type: String, require },
   body: { type: Array, require },
   total: { type: String },
