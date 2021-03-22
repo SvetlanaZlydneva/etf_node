@@ -8,7 +8,7 @@ const orderSchema = new Schema({
   head: { type: String, require },
   created: {
     type: String,
-    default: moment().local().format("DD-MM-YYYY THH:mm"),
+    default: moment().local().format("DD-MM-YYYY"),
   },
   author: { type: String, require },
   body: { type: Array, require },
