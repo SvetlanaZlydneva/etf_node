@@ -6,7 +6,10 @@ const orderSchema = new Schema({
   activity: { type: String, require },
   category: { type: Object, require },
   head: { type: String, require },
-  created: { type: String, default: moment().local() },
+  created: {
+    type: String,
+    default: moment().local().format("DD-MM-YYYY hh:mm"),
+  },
   author: { type: String, require },
   body: { type: Array, require },
   total: { type: String },
