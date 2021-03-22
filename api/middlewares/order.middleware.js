@@ -36,7 +36,7 @@ class OrderMiddleware {
       activity: Joi.string().required(),
       category: Joi.object().required(),
       head: Joi.string().required(),
-      created: Joi.number(),
+      created: Joi.string(),
       number: Joi.number(),
       author: Joi.string().required(),
       body: Joi.array().required(),
